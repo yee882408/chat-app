@@ -71,7 +71,7 @@ export async function middleware(req: NextRequest) {
       console.log('Auth cookie found, session valid:', hasSession);
     } catch (e) {
       console.error('Error parsing auth cookie:', e);
-      console.error('Error details:', e.message);
+      console.error('Error details:', e instanceof Error ? e.message : String(e));
     }
   }
 
